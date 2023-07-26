@@ -1,0 +1,475 @@
+@import 'hamburger.css';
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+:root {
+    font-family: 'Inter', sans-serif;
+    --clr-main: #fff;
+    --clr-secondary: #000;
+    ---clr-gray: #e0e0e0;
+    --easing: cubic-bezier(0.5, 0.7, 0.4, 1);
+}
+
+.darkMode {
+    --clr-main: #fff;
+}
+
+@supports (font-variation-settings: normal) {
+    :root {
+        font-family: 'Inter var', sans-serif;
+    }
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    color: white;
+    background-color: #fff;
+    color: var(--clr-secondary);
+    position: relative;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+button {
+    all: unset;
+    cursor: pointer;
+}
+.container {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+}
+
+/* Nav Section */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+
+    font-size: 1.2rem;
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    width: 100%;
+    z-index: 9999999999;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    /* background-color: var(---clr-gray); */
+}
+.navbar__items {
+    display: none;
+    gap: 2rem;
+}
+.navbar__items li {
+    overflow: hidden;
+}
+.navbar__items li::after {
+    display: block;
+    content: '';
+    height: 1.6px;
+    width: 100%;
+    background-color: var(--clr-secondary);
+    border-radius: 9999px;
+    transform: translateX(-101%);
+}
+.navbar__items li:hover::after {
+    transition: transform 0.3s var(--easing);
+    transform: translateX(0);
+}
+.navbar__items li.animate-out::after {
+    transition: transform 0.3s var(--easing);
+    transform: translateX(100%);
+}
+.nav__button {
+    display: none;
+}
+.btn-primary {
+    border-radius: 9999px;
+    outline: solid;
+    outline-width: 1px;
+    padding: 0.4rem 0.8rem;
+    transition: all 0.5s var(--easing);
+}
+.btn-primary:hover {
+    background-color: var(--clr-secondary);
+    color: var(--clr-main);
+}
+.btn-black {
+    border-radius: 9999px;
+    outline: solid;
+    outline-width: 1px;
+    padding: 0.6rem 3rem;
+    transition: color 0.5s var(--easing);
+    transition: background-color 0.5s var(--easing);
+    background-color: var(--clr-secondary);
+    color: var(--clr-main);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.btn-black:hover {
+    background-color: var(--clr-main);
+    color: var(--clr-secondary);
+}
+/* Header Section */
+
+.header {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    /* margin-top: 10rem; */
+    /* outline: red 1px solid; */
+    /* padding: 2rem; */
+    /* background-color: #000; */
+}
+.header__wrappper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; */
+    line-height: 1;
+}
+.bg-header {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    /* background-color: #000; */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('https://cdna.artstation.com/p/assets/images/images/047/953/772/large/terraform-studios-1nyan-citystreet-part1-v001-002-pd.jpg?1648833569');
+}
+.header h1 {
+    /* font-size: 4rem; */
+    font-size: 10vw;
+    color: #fff;
+}
+.header__btns {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-top: 6rem;
+}
+.btn-main {
+    background-color: #fff;
+    color: #000;
+    font-size: 1.6rem;
+    padding: 1rem 2rem;
+    border-radius: 999px;
+    font-weight: 600;
+}
+
+.btn-secondary {
+    color: #fff;
+    font-size: 1.6rem;
+    padding: 1rem 2rem;
+    border-radius: 999px;
+    font-weight: 600;
+    outline: solid;
+    outline-width: 1px;
+}
+.btn-secondary:hover {
+    color: #000;
+    background-color: #fff;
+}
+.header2 {
+    /* margin-top: 10rem; */
+}
+/*Product*/
+.product {
+    min-height: 100vh;
+    width: 100%;
+    font-size: 2vw;
+    /* background-color: blue; */
+    padding: 2rem;
+    color: #000;
+    /* font-weight: bold; */
+}
+.product2 {
+    /* margin-top: 10rem; */
+    height: 100vh;
+    width: 100%;
+    background-color: red;
+    padding: 2rem;
+}
+.product div {
+    display: inline-block;
+}
+.video {
+    min-height: 100vh;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.video video {
+    width: 70%;
+    height: 90%;
+}
+
+/*Cards*/
+.cards {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+.card {
+    max-width: 350px;
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    cursor: pointer;
+}
+
+.card__img {
+    width: 100%;
+}
+.card__img img {
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 5px;
+}
+.card__info {
+    padding: 2rem;
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+}
+.card__subtitle {
+    color: #383838;
+}
+
+.btn-card-main {
+    align-self: flex-end;
+    background-color: blue;
+    color: #fff;
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+}
+
+.line {
+    width: 100%;
+    height: 2px;
+    background-color: #e0e0e0;
+    border-radius: 9999px;
+}
+/* product feature */
+.product_feature {
+    display: flex;
+    gap: 2rem;
+    padding-top: 2rem;
+}
+.product_feature h1 {
+    font-size: 4rem;
+    max-width: 25%;
+    /* line-height: 1.2; */
+    color: #000;
+}
+
+.product_feature-img {
+    width: 50%;
+    position: relative;
+}
+.test {
+    position: absolute;
+    top: 25%;
+    left: 0;
+    width: 20rem;
+}
+.test-2 {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 10rem;
+}
+.test img,
+.test-2 img {
+    width: 100%;
+}
+.product_feature-img img {
+    width: 100%;
+}
+.product_feature-desc {
+    max-width: 25%;
+    line-height: 1.8;
+    align-self: center;
+}
+
+.box {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.box .content {
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    max-width: 60%;
+    align-items: start;
+}
+.box .content span {
+    font-size: 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+.box h1 {
+    font-size: 3rem;
+    color: #000;
+}
+.box p {
+    font-size: 1.6rem;
+}
+.box-img {
+    width: 50%;
+    position: relative;
+}
+.box-img img {
+    width: 100%;
+}
+
+.exp,
+.exp2 {
+    min-height: 50vh;
+}
+.exp {
+    text-align: center;
+}
+.exp,
+.exp2 {
+    font-size: 2rem;
+}
+.exp2 {
+    display: flex;
+    justify-content: space-between;
+}
+.exp2-img-wrap {
+    width: 50%;
+}
+.exp2-img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.exp2-img img {
+    width: 15rem;
+    position: absolute;
+}
+.exp2-img-1 {
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.exp2-img-2 {
+    z-index: 1;
+    top: 50%;
+    right: 25%;
+    transform: translate(-50%, -50%);
+}
+.exp2-img-3 {
+    transform: translate(-50%, 50%);
+    bottom: 50%;
+    left: 50%;
+}
+.exp2-img-4 {
+    transform: translate(-50%, 50%);
+    bottom: 50%;
+    right: 25%;
+}
+/* Featured */
+/* .featured {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    overflow: hidden;
+    padding: 10rem;
+}
+.featured__img {
+    width: 90%;
+    position: relative;
+    border-radius: 35px;
+}
+.featured__img img {
+    width: 100%;
+    position: absolute;
+    border-radius: 35px;
+} */
+
+/* Media  Queries */
+
+@media screen and (min-width: 600px) {
+    .navbar__items {
+        display: flex;
+    }
+    .nav__button {
+        display: block;
+    }
+    .hamburger {
+        display: none;
+    }
+    .header__btns {
+        flex-direction: row;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .navbar__items {
+        gap: 5rem;
+    }
+    .header h1 {
+        font-size: 8rem;
+    }
+    .cards {
+        justify-content: space-between;
+    }
+}
