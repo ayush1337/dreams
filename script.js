@@ -245,7 +245,7 @@ function initHeader() {
             start: 'top 90%',
             end: 'top 15%',
             scrub: 1,
-            markers: true,
+            // markers: true,
         },
     });
     const boxTimline2 = gsap.timeline({
@@ -255,7 +255,7 @@ function initHeader() {
             start: 'top 90%',
             end: 'top 15%',
             scrub: 1,
-            markers: true,
+            // markers: true,
         },
     });
     console.log(selectAll('.box .content > *'));
