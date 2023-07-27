@@ -371,7 +371,7 @@ function initHeader() {
             start: 'top center',
             end: 'top top',
             scrub: false,
-            markers: true,
+            // markers: true,
             duration: 2,
         },
     });
