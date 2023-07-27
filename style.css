@@ -219,11 +219,10 @@ button {
 .product {
     min-height: 100vh;
     width: 100%;
-    font-size: 2vw;
+    font-size: 3vw;
     /* background-color: blue; */
     padding: 2rem;
     color: #000;
-    /* font-weight: bold; */
 }
 .product2 {
     /* margin-top: 10rem; */
@@ -297,6 +296,43 @@ button {
     border-radius: 999px;
 }
 
+.brand {
+    min-height: 30vh;
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    color: #fff;
+    padding: 0 5rem;
+}
+.brand-bg {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+}
+.brand__img {
+    display: flex;
+    gap: 5rem;
+}
+.brand__img div {
+    width: 10rem;
+}
+.brand__img div img {
+    width: 100%;
+}
+
+.brand h1 {
+    font-size: 3rem;
+}
+.brand p {
+    font-size: 1rem;
+}
 .line {
     width: 100%;
     height: 2px;
@@ -391,6 +427,7 @@ button {
 .exp2 {
     display: flex;
     justify-content: space-between;
+    padding: 3rem;
 }
 .exp2-img-wrap {
     width: 50%;

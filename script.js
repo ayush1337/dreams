@@ -363,15 +363,21 @@ function initHeader() {
         },
         'same'
     );
-    // expTimeline.from(
-    //     expP,
-    //     {
-    //         y: 100,
-    //         stagger: 0.1,
-    //         autoAlpha: 0,
-    //     },
-    //     'same'
-    // );
+
+    const brandTimeline = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.brand',
+            scroller: '.main',
+            start: 'top center',
+            end: 'top top',
+            scrub: false,
+            markers: true,
+            duration: 2,
+        },
+    });
+    brandTimeline.from('.brand-bg', {
+        width: '0%',
+    });
     const paraText = select('.product div');
     const splitText = textSplit(paraText, ' ');
 
