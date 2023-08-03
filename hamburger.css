@@ -36,7 +36,7 @@
     display: block;
     width: 100%;
     height: 2px;
-    background-color: var(--bar-bg, #000);
+    background-color: #016d77;
     border-radius: 1px;
     transition: all 0.2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
 }

@@ -5,8 +5,10 @@ const selectAll = (e) => document.querySelectorAll(e);
 function init() {
     initScroll();
     initNavigation();
+    initFillTextSection();
     initHeader();
-    // initProducts();
+    navbarOpenClose();
+    initProducts();
 }
 
 function initScroll() {
@@ -16,7 +18,7 @@ function initScroll() {
         el: document.querySelector('.main'),
         smooth: true,
         // multiplier: 0.5,
-        lerp: 0.05,
+        lerp: 0.025,
     });
     locoScroll.on('scroll', ScrollTrigger.update);
 
@@ -44,6 +46,43 @@ function initScroll() {
     ScrollTrigger.refresh();
 }
 
+function navbarOpenClose() {
+    const navbar = select('.nav-open');
+    const hamburger = select('.hamburger');
+
+    gsap.set(selectAll('.nav-open li'), {
+        scale: 0,
+    });
+    hamburger.addEventListener('click', () => {
+        if (navbar.classList.contains('open')) {
+            navbar.classList.remove('open');
+            gsap.to(selectAll('.nav-open li'), {
+                duration: 0.5,
+                scale: 0,
+                stagger: 0.1,
+            });
+            gsap.to(navbar, {
+                delay: 0.5,
+                width: '0%',
+                ease: 'Power4.easeOut',
+                duration: 1.5,
+            });
+        } else {
+            navbar.classList.add('open');
+
+            gsap.to(navbar, {
+                width: '100%',
+                ease: 'Power4.easeOut',
+                duration: 1.5,
+            });
+            gsap.to(selectAll('.nav-open li'), {
+                scale: 1,
+                stagger: 0.1,
+            });
+        }
+    });
+}
+
 function initNavigation() {
     //Animating Link Hover Effect
     const mainNavLinks = gsap.utils.toArray('.navbar__items li');
@@ -63,100 +102,63 @@ function initNavigation() {
         };
     });
 }
+function initFillTextSection() {
+    const paraText = select('.product div');
+    const splitText = textSplit(paraText, ' ');
+
+    gsap.set(splitText, { autoAlpha: 0.1 });
+    const textRevealTimeline = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.product div',
+            scroller: '.main',
+            start: 'top 30%',
+            end: 'top -200%',
+            scrub: 2,
+            pin: true,
+            markers: true,
+            // pinType: 'fixed',
+        },
+    });
+    textRevealTimeline.to(
+        'body',
+        {
+            backgroundColor: '#83c4be',
+            ease: 'Power4.easeOut',
+        },
+        'same'
+    );
+    textRevealTimeline.to(
+        splitText,
+        {
+            autoAlpha: 1,
+            stagger: 0.1,
+            ease: 'Power4.easeOut',
+        },
+        'same'
+    );
+}
 
 function initHeader() {
-    // const headerText = select('.header h1');
-    // const splitText = textSplit(headerText, '<br/>');
-    // console.log(splitText);
-    // const tl = gsap.timeline();
-    // tl.from(selectAll('.header__wrappper'), {
-    //     height: '0%',
-    //     duration: 1,
-    //     ease: 'Power4.easeIn',
-    // });
-    // tl.from(
-    //     selectAll('.header h1'),
+    // gsap.from(
+    //     [
+    //         select('.header__first'),
+    //         select('.header__second'),
+    //         selectAll('.header__btns button'),
+    //     ],
     //     {
-    //         y: '100%',
-    //         duration: 1.5,
-    //         stagger: 0.3,
     //         autoAlpha: 0,
-    //         ease: 'Power4.easeOut',
-    //     },
-    //     'same'
+    //         y: 200,
+    //         stagger: 0.1,
+    //         duration: 1,
+    //     }
     // );
 
-    // tl.from(
-    //     selectAll('.header__btns button'),
-    //     {
-    //         y: '100%',
-    //         duration: 1.5,
-    //         stagger: {
-    //             amount: 0.5,
-    //         },
-    //         autoAlpha: 0,
-    //         ease: 'Power4.easeOut',
-    //     },
-    //     'same'
-    // );
-
-    // const tl2 = gsap.timeline({
-    //     scrollTrigger: {
-    //         trigger: '.header',
-    //         scroller: '.main',
-    //         start: '50% center',
-    //         end: '50%% 25%',
-    //         scrub: 3,
-    //         // markers: true,
-    //         pin: true,
-    //     },
-    // });
-    // tl2.to(
-    //     '.header',
-    //     {
-    //         scale: 0.9,
-    //         ease: 'Power4.easeOut',
-    //     },
-    //     'same'
-    // );
-
-    // tl2.from(
-    //     '.product',
-    //     {
-    //         scale: 0.8,
-    //         ease: 'Power4.easeOut',
-    //     },
-    //     'same'
-    // );
-    // tl2.to(
-    //     '.header__first',
-    //     {
-    //         x: 100,
-    //         ease: 'Power4.easeOut',
-    //     },
-    //     'same'
-    // );
-    // tl2.to(
-    //     '.header__second',
-    //     {
-    //         x: -100,
-    //         ease: 'Power4.easeOut',
-    //     },
-    //     'same'
-    // );
-    gsap.from(
-        [
-            select('.header__first'),
-            select('.header__second'),
-            selectAll('.header__btns button'),
-        ],
-        {
-            autoAlpha: 0,
-            y: 200,
-            stagger: 0.1,
-            duration: 1,
-        }
-    );
+    gsap.from('.header__wrapper > *', {
+        stagger: 0.1,
+        y: 200,
+        autoAlpha: 0,
+        duration: 1,
+    });
     const tl3 = gsap.timeline({
         scrollTrigger: {
             trigger: '.cards',
@@ -167,6 +169,7 @@ function initHeader() {
             // markers: true,
         },
     });
+
     tl3.from(selectAll('.card'), {
         y: 100,
         stagger: 0.1,
@@ -195,12 +198,13 @@ function initHeader() {
         scrollTrigger: {
             trigger: '.video',
             scroller: '.main',
-            start: 'top 90%',
-            end: 'top top',
+            start: 'center 90%',
+            end: 'center top',
             scrub: 1,
             // markers: true,
         },
     });
+
     videoTimeLine.to('.video video', {
         width: '90%',
         ease: 'Power4.easeOut',
@@ -258,7 +262,6 @@ function initHeader() {
             // markers: true,
         },
     });
-    console.log(selectAll('.box .content > *'));
     boxTimline.from(
         [
             select('.content h1'),
@@ -378,60 +381,7 @@ function initHeader() {
     brandTimeline.from('.brand-bg', {
         width: '0%',
     });
-    const paraText = select('.product div');
-    const splitText = textSplit(paraText, ' ');
-
-    gsap.set(splitText, { autoAlpha: 0.3 });
-    const textRevealTimeline = gsap.timeline({
-        scrollTrigger: {
-            trigger: '.product',
-            scroller: '.main',
-            start: 'top 30%',
-            end: 'top -300%',
-            scrub: 0.1,
-            pin: true,
-        },
-    });
-    textRevealTimeline.to(splitText, {
-        autoAlpha: 1,
-        stagger: 0.1,
-    });
 }
-
-// function initProducts() {
-//     const tl = gsap.timeline({
-//         scrollTrigger: {
-//             trigger: '.product',
-//             scroller: '.main',
-//             start: 'top bottom',
-//             end: 'bottom top',
-//             scrub: 5,
-//             // markers: true,
-//         },
-//     });
-//     console.log(selectAll('.product'));
-
-//     tl.from(
-//         '.product__even',
-//         {
-//             y: 100,
-//             ease: 'Power4.easeOut',
-//             autoAlpha: 0,
-//             scale: 0.8,
-//         },
-//         'same'
-//     );
-//     tl.from(
-//         '.product__odd',
-//         {
-//             y: -100,
-//             ease: 'Power4.easeOut',
-//             autoAlpha: 0,
-//             scale: 0.8,
-//         },
-//         'same'
-//     );
-// }
 
 window.addEventListener('load', () => {
     init();

@@ -9,15 +9,15 @@
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css"
         />
-        <link rel="preconnect" href="https://rsms.me/" />
-        <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-        <link rel="stylesheet" href="style.css" />
         <script defer type="module" src="script.js"></script>
+        <link rel="stylesheet" href="style.css" />
     </head>
     <body class="body">
         <!-- Navbar -->
         <nav class="navbar">
-            <div style="font-size: 2rem">dream.</div>
+            <a href="#">
+                <img src="./img/autogrid-logo.png" class="logo" />
+            </a>
 
             <ul class="navbar__items">
                 <li><a href="#">Home</a></li>
@@ -26,7 +26,7 @@
                 <li><a href="#">About Us</a></li>
             </ul>
 
-            <button class="btn-primary nav__button">Contact Us</button>
+            <a href="#" class="btn btn-nav">Contact Us</a>
 
             <div class="hamburger">
                 <div class="menu-icon">
@@ -38,28 +38,35 @@
                 </div>
             </div>
         </nav>
+        <div class="nav-open">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Home</a></li>
+            </ul>
+        </div>
 
         <div class="main" data-scroll-container>
-            <div style="min-height: 20vh"></div>
-            <header class="header container">
-                <div class="header__wrappper">
-                    <h1 data-scroll data-scroll-speed="3" class="header__first">
-                        dream
-                    </h1>
-                    <h1
-                        data-scroll
-                        data-scroll-speed="3"
-                        class="header__second"
-                    >
-                        dolor sit amet.
-                    </h1>
-                    <div class="header__btns">
-                        <button class="btn-main">Get Started →</button>
-                        <button class="btn-secondary">Secondary Options</button>
-                    </div>
+            <header class="header">
+                <div class="header__wrapper">
+                    <h1>lorem Ipsum <br />consectetur adipiscing elit.</h1>
+                    <h1></h1>
+
+                    <p>
+                        Vestibulum ante ipsum primis in faucibus orci luctus et
+                        ultrices posuee cubilia curae; Fusce mollis lacinia
+                        lectus. Proin sit amet interdum ipsum, vel vestibulum
+                        justo.
+                    </p>
+                    <a href="#" class="btn btn-brand-main">Get started →</a>
                 </div>
-                <div class="bg-header"></div>
+
+                <div class="bottom_gradient"></div>
+                <div class="top_gradient"></div>
+                <img src="img/car.png" class="car" />
             </header>
+
             <section class="video container">
                 <video
                     autoplay
@@ -129,29 +136,6 @@
                 </div>
             </section>
 
-            <!-- <section class="featured container">
-                <div>
-                    <h1>featured.</h1>
-                    <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing
-                        elit. Praesentium in voluptatibus eos, cupiditate
-                        temporibus iure provident. Consequuntur ipsum quam quia
-                        facilis recusandae quidem totam laudantium perferendis
-                        vitae odit aliquam omnis delectus asperiores mollitia,
-                        iusto fugit, laboriosam soluta incidunt explicabo
-                        suscipit dicta. Atque recusandae quasi ipsa impedit
-                        doloribus? Temporibus, blanditiis incidunt!
-                    </p>
-                </div>
-                <div class="featured__img">
-                    <img
-                        data-scroll
-                        data-scroll-speed="-2.5"
-                        src="https://images.pexels.com/photos/1761279/pexels-photo-1761279.jpeg?cs=srgb&dl=pexels-jacob-colvin-1761279.jpg&fm=jpg&w=1920&h=2880&_gl=1*h9pd1p*_ga*MjAxOTM5MTI4OS4xNjkwMTk3MzU0*_ga_8JE65Q40S6*MTY5MDI1NTE0MS4yLjEuMTY5MDI1NTIyMi4wLjAuMA.."
-                    />
-                </div>
-            </section> -->
-
             <section class="container exp">
                 <h1>
                     Resurface your<br />
@@ -163,9 +147,11 @@
                     <br />information, ready to be searched and resurfaced.
                 </p>
             </section>
+
             <div class="container">
                 <div class="line"></div>
             </div>
+
             <section class="product_feature container">
                 <h1>
                     Lorem ipsum <br />
@@ -191,6 +177,7 @@
                     beatae culpa ut?
                 </p>
             </section>
+
             <section class="box container">
                 <div class="content">
                     <h1>
@@ -301,6 +288,9 @@
                     earum! dolorum?
                 </div>
             </section>
+            <footer>
+                <div class="container">Just a footer</div>
+            </footer>
 
             <!-- <header class="header">
                     <h1>Lorem ipsum</h1>
