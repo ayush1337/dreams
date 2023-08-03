@@ -198,8 +198,8 @@ function initHeader() {
         scrollTrigger: {
             trigger: '.video',
             scroller: '.main',
-            start: 'center 90%',
-            end: 'center top',
+            start: 'top bottom',
+            end: 'top top',
             scrub: 1,
             // markers: true,
         },
