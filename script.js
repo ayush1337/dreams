@@ -18,7 +18,7 @@ function initScroll() {
         el: document.querySelector('.main'),
         smooth: true,
         // multiplier: 0.5,
-        lerp: 0.025,
+        lerp: 0.05,
     });
     locoScroll.on('scroll', ScrollTrigger.update);
 
@@ -66,10 +66,13 @@ function navbarOpenClose() {
                 width: '0%',
                 ease: 'Power4.easeOut',
                 duration: 1.5,
+                onCompelete: () => {
+                    select('.navbar').style.backdropFilter = 'blur(40px)';
+                },
             });
         } else {
             navbar.classList.add('open');
-
+            select('.navbar').style.backdropFilter = 'none';
             gsap.to(navbar, {
                 width: '100%',
                 ease: 'Power4.easeOut',
@@ -176,23 +179,23 @@ function initHeader() {
         autoAlpha: 0,
     });
 
-    const cards = gsap.utils.toArray('.card');
-    cards.forEach((card) => {
-        card.addEventListener('mouseenter', (e) => {
-            gsap.to(card, {
-                scale: 1.05,
-                ease: 'Power4.easeOut',
-                duration: 0.5,
-            });
-        });
-        card.addEventListener('mouseleave', (e) => {
-            gsap.to(card, {
-                scale: 1,
-                ease: 'Power4.easeOut',
-                duration: 0.5,
-            });
-        });
-    });
+    // const cards = gsap.utils.toArray('.card');
+    // cards.forEach((card) => {
+    //     card.addEventListener('mouseenter', (e) => {
+    //         gsap.to(card, {
+    //             scale: 1.05,
+    //             ease: 'Power4.easeOut',
+    //             duration: 0.5,
+    //         });
+    //     });
+    //     card.addEventListener('mouseleave', (e) => {
+    //         gsap.to(card, {
+    //             scale: 1,
+    //             ease: 'Power4.easeOut',
+    //             duration: 0.5,
+    //         });
+    //     });
+    // });
 
     const videoTimeLine = gsap.timeline({
         scrollTrigger: {
@@ -263,11 +266,7 @@ function initHeader() {
         },
     });
     boxTimline.from(
-        [
-            select('.content h1'),
-            select('.content p'),
-            select('.content button'),
-        ],
+        [select('.content h1'), select('.content p'), select('.content a')],
         {
             y: 200,
             autoAlpha: 0,

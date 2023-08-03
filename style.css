@@ -235,8 +235,19 @@ button {
     padding: 2rem;
     gap: 2rem;
 }
+
 .header__wrapper > * {
     max-width: 800px;
+}
+.header__focus {
+    background-color: #83c4be40;
+    color: #016d77;
+    padding: 0.5rem 2rem;
+    border-radius: 999px;
+    font-size: 1.4rem;
+}
+.header__focus span {
+    font-weight: bold;
 }
 .bg-header {
     width: 100%;
@@ -368,7 +379,7 @@ button {
     padding: 2rem;
 }
 .card {
-    max-width: 350px;
+    max-width: 250px;
     display: flex;
     gap: 2rem;
     flex-direction: column;
@@ -376,6 +387,7 @@ button {
     background-color: #fff;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     cursor: pointer;
+    min-height: 300px;
 }
 
 .card__img {
@@ -385,16 +397,21 @@ button {
     width: 100%;
     object-fit: contain;
     object-position: center;
-    border-radius: 5px;
+    border-radius: 5px 5px 0px 0px;
 }
 .card__info {
     padding: 2rem;
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
     flex-direction: column;
 }
 .card__subtitle {
-    color: #383838;
+    background-color: #83c4be40;
+    color: var(---clr-brand-secondary);
+    font-size: 1.2rem;
+    align-self: flex-start;
+    padding: 0.25rem 1rem;
+    border-radius: 999px;
 }
 
 .btn-card-main {
@@ -458,7 +475,7 @@ button {
     font-size: 4rem;
     max-width: 25%;
     /* line-height: 1.2; */
-    color: #000;
+    color: #016d77;
 }
 
 .product_feature-img {
@@ -488,6 +505,7 @@ button {
     max-width: 25%;
     line-height: 1.8;
     align-self: center;
+    font-size: 1.6rem;
 }
 
 .box {
@@ -508,7 +526,7 @@ button {
 }
 .box h1 {
     font-size: 3rem;
-    color: #000;
+    color: #016d77;
 }
 .box p {
     font-size: 1.6rem;
@@ -527,6 +545,10 @@ button {
 }
 .exp {
     text-align: center;
+}
+.exp h1,
+.exp2 h1 {
+    color: #016d77;
 }
 .exp,
 .exp2 {
@@ -630,6 +652,6 @@ footer {
         /* font-size: 8rem; */
     }
     .cards {
-        justify-content: space-between;
+        /* justify-content: space-between; */
     }
 }
