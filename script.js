@@ -115,7 +115,7 @@ function initFillTextSection() {
             end: 'top -200%',
             scrub: 2,
             pin: true,
-            markers: true,
+            // markers: true,
             // pinType: 'fixed',
         },
     });
